@@ -1,5 +1,13 @@
 package fr.esiea.kamui.dao;
 
-public class CsvTirageDao {
+import java.io.File;
+import java.util.List;
 
+public interface CsvTirageDao {
+
+	public void init(File file);
+	
+	public File getFile();
+	
+	public List<String> getEntetes(); 
 }
