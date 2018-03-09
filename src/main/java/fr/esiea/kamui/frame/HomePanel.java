@@ -13,6 +13,11 @@ public class HomePanel extends DesignPanel implements ActionListener {
 
 		imprimerButton.addActionListener(this);
 
+		homeLabel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				MainFrame.showHomePanel();
+			}
+		});
 		tirageListLabel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				MainFrame.showTirageListPanel();

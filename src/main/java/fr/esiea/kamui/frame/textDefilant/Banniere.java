@@ -34,7 +34,7 @@ import javax.swing.JLabel;
 
 	public void avancer(){
 		if(position++>tailleTampon+texte.length()){
-			position=0;
+			position=0; 
 		}
 		dessiner();
 	}
