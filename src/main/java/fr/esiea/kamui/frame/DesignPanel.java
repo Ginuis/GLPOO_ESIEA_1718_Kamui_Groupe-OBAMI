@@ -19,7 +19,7 @@ public class DesignPanel extends JPanel  {
 	private Font policeCentury, policeCastellar, policeTower;
 	private Color Couleur1, Couleur2, Couleur3, Couleur4, Couleur5;
 	protected JButton imprimerButton;
-	private Banniere banniere1;
+	private Banniere banniere;
 
 	public DesignPanel() {
 
@@ -39,9 +39,9 @@ public class DesignPanel extends JPanel  {
 		Couleur4 = new Color(240, 240, 240);
 		Couleur5 = new Color(162, 162, 162);
 
-		banniere1 = new Banniere("GLPOO - KAMUI", 40);
-		banniere1.setFont(policeCastellar);
-		banniere1.start();
+		banniere = new Banniere("GLPOO - KAMUI", 40);
+		banniere.setFont(policeCastellar);
+		banniere.start();
 
 		imprimerButton = new JButton("Imprimer");
 		imprimerButton.setFont(policeCentury);
@@ -68,9 +68,9 @@ public class DesignPanel extends JPanel  {
 		panelBanderoleHaut.setLayout(null);
 		add(panelBanderoleBas);
 		panelBanderoleBas.setLayout(null);
-		add(banniere1);
+		add(banniere);
 
-		panelHaut.add(banniere1);
+		panelHaut.add(banniere);
 
 		add(imprimerButton);
 
@@ -82,7 +82,7 @@ public class DesignPanel extends JPanel  {
 		panelBanderoleBas.setBounds(0, 125, dm.width, 5);
 
 		imprimerButton.setBounds(1000, 10, 200, 20);
-		banniere1.setBounds(30, 10, 500, 70);
+		banniere.setBounds(30, 10, 300, 70);
 
 		add(tirageListLabel);
 		add(bonusLabel);
@@ -90,8 +90,8 @@ public class DesignPanel extends JPanel  {
 		panelHaut.add(tirageListLabel);
 		panelHaut.add(bonusLabel);
 
-		tirageListLabel.setBounds(600, 10, 240, 70);
-		bonusLabel.setBounds(900, 10, 150, 70);
+		tirageListLabel.setBounds(700, 10, 240, 70);
+		bonusLabel.setBounds(1100, 10, 150, 70);
 
 	}
 

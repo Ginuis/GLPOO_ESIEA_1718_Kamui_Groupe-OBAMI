@@ -1,5 +1,5 @@
 package fr.esiea.kamui.frame;
 
-public class TirageListPanel {
+public class TirageListPanel extends DesignPanel{
 
 }
