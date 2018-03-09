@@ -10,7 +10,7 @@ public class Launcher {
 
 	public static void main(String[] args) {
 		final JFrame frame = new MainWindows();
-		frame.setVisible(true);
+		frame.setVisible(false);
 		final JFrame designFrame = new MainFrame();
 		designFrame.setVisible(true);
 	}
