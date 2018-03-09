@@ -7,7 +7,7 @@ import fr.esiea.kamui.domain.Tirage;
 import java.util.List;
 
 public class FinalTirageSingleton {
-	final Logger LOGGER = Logger.getLogger(CsvTirageDao.class);
+	final Logger LOGGER = Logger.getLogger(FinalCsvTirageDao.class);
 
 	private static FinalTirageSingleton singleton;
 	private FinalCsvTirageDao dao;

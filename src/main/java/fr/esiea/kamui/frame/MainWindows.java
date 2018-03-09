@@ -28,7 +28,7 @@ public class MainWindows extends JFrame{
 		private final JButton buttonSelectionner;
 		private final JButton buttonAnnuler;
 		private FinalCsvTirageDao dao;
-		private String nomFichierAcces = "src/main/resources/euromillions_4.csv";
+		private String nomFichierAcces = "src/main/resources/euromillions_4.csv"; 
 
 		public MainWindows() {
 			model = new DynamicModel();

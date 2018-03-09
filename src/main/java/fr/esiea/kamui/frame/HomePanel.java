@@ -10,13 +10,12 @@ public class HomePanel extends DesignPanel implements ActionListener {
 	public HomePanel() {
 		super();
 		setLayout(null);
-		
 
 		imprimerButton.addActionListener(this);
-		
+
 		tirageListLabel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// Todo 
+				MainFrame.showTirageListPanel();
 			}
 		});
 
@@ -30,9 +29,7 @@ public class HomePanel extends DesignPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
-	
+
 }

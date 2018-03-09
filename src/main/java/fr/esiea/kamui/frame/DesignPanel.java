@@ -23,9 +23,7 @@ public class DesignPanel extends JPanel  {
 
 	public DesignPanel() {
 
-		Toolkit tk = Toolkit.getDefaultToolkit();
-		Dimension dm = tk.getScreenSize();
-		// setSize(dm.width,dm.height);
+		Dimension dm = Toolkit.getDefaultToolkit().getScreenSize();
 
 		setLayout(null);
 
@@ -55,7 +53,7 @@ public class DesignPanel extends JPanel  {
 		panelBanderoleBas = new JPanel();
 		panelBanderoleBas.setBackground(Color.GRAY);
 
-		tirageListLabel = new JLabel("Liste des Tirage");
+		tirageListLabel = new JLabel("Liste des Tirages");
 		tirageListLabel.setFont(policeTower);
 		bonusLabel = new JLabel("Bonus");
 		bonusLabel.setFont(policeTower);
