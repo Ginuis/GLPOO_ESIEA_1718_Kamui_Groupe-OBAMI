@@ -4,7 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+/*
+ * Mise en place de sections accessible par click en evitant les boutons moins 
+ * esthétiques 
+ */
 public class HomePanel extends DesignPanel implements ActionListener {
 
 	public HomePanel() {
