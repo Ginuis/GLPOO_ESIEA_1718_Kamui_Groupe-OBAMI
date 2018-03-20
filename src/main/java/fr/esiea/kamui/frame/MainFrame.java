@@ -21,7 +21,7 @@ public class MainFrame extends JFrame {
 	protected static CardLayout Card;
 	protected HomePanel homePanel;
 	protected TirageListPanel tirageListPanel;
-	private FinalCsvTirageDao dao;
+	protected WelcomePanel welcomePanel;
 
 	public MainFrame() {
 		setTitle("GLPOO - KAMUI");
@@ -57,7 +57,9 @@ public class MainFrame extends JFrame {
 
 		homePanel = new HomePanel();
 		tirageListPanel = new TirageListPanel();
+		welcomePanel = new WelcomePanel();
 
+		contenue.add(welcomePanel, "welcomePanel");
 		contenue.add(homePanel, "homePanel");
 		contenue.add(tirageListPanel, "tirageListPanel");
 
@@ -75,9 +77,12 @@ public class MainFrame extends JFrame {
 		Card.show(contenue, "homePanel");
 	}
 
-	public static void showTirageListPanel()
-	    {
+	public static void showTirageListPanel(){
 	        Card.show(contenue,"tirageListPanel");
-	    }
+	}
+	
+	public static void showWelcomePanel() {
+		Card.show(contenue, "welcomePanel");
+	}
 
 }

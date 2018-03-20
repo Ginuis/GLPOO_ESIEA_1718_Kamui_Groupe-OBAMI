@@ -7,7 +7,7 @@ import fr.esiea.kamui.frame.textDefilant.Banniere;
 import java.awt.event.*;
 import java.awt.*;
 
-public class DesignPanel extends JPanel  {
+public class DesignPanel extends JPanel {
 
 	/**
 	 *

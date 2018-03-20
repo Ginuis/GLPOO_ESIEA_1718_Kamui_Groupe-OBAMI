@@ -165,6 +165,10 @@ public class FinalCsvTirageDao implements CsvTirageDao {
 		return tirages;
 	}
 
+	/**
+	 * Getter de tirages
+	 * @return tirages
+	 */
 	public List<Tirage> getTirages() {
 		return tirages;
 	}

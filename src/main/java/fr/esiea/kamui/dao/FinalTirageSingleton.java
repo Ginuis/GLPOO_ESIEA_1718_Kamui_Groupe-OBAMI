@@ -20,6 +20,10 @@ public class FinalTirageSingleton {
 	 * Cette fonction nous permets d'avoir une instance de TirageFunction si elle
 	 * n'existe pas déjà
 	 */
+	/**
+	 * 
+	 * @return singleton
+	 */
 	public static synchronized FinalTirageSingleton getInstance() {
 		if (singleton == null) {
 			singleton = new FinalTirageSingleton();
@@ -27,6 +31,11 @@ public class FinalTirageSingleton {
 		return singleton;
 	}
 
+	/**
+	 * 
+	 * @param nomFichier
+	 * @return tirages
+	 */
 	public List<Tirage> findAllTirageSingleton(String nomFichier) {
 		List<Tirage> tirages = dao.findAllTirage(nomFichier);
 		for (Tirage tirage : tirages) {
