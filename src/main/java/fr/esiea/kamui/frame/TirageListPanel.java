@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import org.apache.log4j.Logger;
 
 import fr.esiea.kamui.dao.FinalCsvTirageDao;
+import fr.esiea.kamui.domain.Tirage;
 import fr.esiea.kamui.modelTable.DynamicModel;
 
 public class TirageListPanel extends DesignPanel implements ActionListener{
@@ -43,11 +44,7 @@ public class TirageListPanel extends DesignPanel implements ActionListener{
 		table.setAutoCreateRowSorter(true);
 		JScrollPane jsp = new JScrollPane(table);
 		
-		tablePanel = new JPanel();
-		
-		
-		
-		
+		tablePanel = new JPanel();	
 		
 		tablePanel.setBackground(Color.WHITE);
 		add(tablePanel);
@@ -60,26 +57,28 @@ public class TirageListPanel extends DesignPanel implements ActionListener{
 		jsp.setBounds(0, 50, dm.width-20, 450);
 		table.setBounds(0, 0, dm.width-20, 50);
 		
-		/*
-		 * Zone de gestion des Boutons
-		 */
-		final JPanel boutonPanel = new JPanel();
-		boutonPanel.setBackground(Color.DARK_GRAY);
 		ImageIcon imgSelectionner = new ImageIcon("src/main/resources/buttonSelectionner.png");
 		ImageIcon imgAnnuler = new ImageIcon("src/main/resources/buttonAnnuler.png");
 		buttonSelectionner = new JButton();
 		buttonAnnuler = new JButton();
-		boutonPanel.add(buttonSelectionner);
-		boutonPanel.add(buttonAnnuler);
-		/*
-		 * Fin de la zone de gestion des boutons
-		 **/
-		//pack();
-		//setLocationRelativeTo(null);
+		buttonSelectionner.setIcon(imgSelectionner);
+		buttonAnnuler.setIcon(imgAnnuler);
+		tablePanel.add(buttonSelectionner);  
+		tablePanel.add(buttonAnnuler);
 		
-		/**
-		 * 
-		 */
+		// Mouse listener sur le tableau
+		table.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if(e.getClickCount() == 1) {
+					selectLine();
+				}
+			}
+		});
+		
+		// Position des button
+		buttonSelectionner.setBounds(450, 520, 200, 50);
+		buttonAnnuler.setBounds(675, 520, 200, 50);
+		
 		imprimerButton.addActionListener(this);
 		
 		homeLabel.addMouseListener(new MouseAdapter() {
@@ -100,7 +99,13 @@ public class TirageListPanel extends DesignPanel implements ActionListener{
 			}
 		});
 	}
-
+	
+	// Selection d'une ligne du tableau
+	public void selectLine() {
+		int Line = table.getSelectedRow();
+		
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
