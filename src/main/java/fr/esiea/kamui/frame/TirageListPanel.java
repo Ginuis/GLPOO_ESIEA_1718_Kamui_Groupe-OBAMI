@@ -63,7 +63,7 @@ public class TirageListPanel extends DesignPanel implements ActionListener{
 		buttonAnnuler = new JButton();
 		buttonSelectionner.setIcon(imgSelectionner);
 		buttonAnnuler.setIcon(imgAnnuler);
-		tablePanel.add(buttonSelectionner);
+		tablePanel.add(buttonSelectionner);  
 		tablePanel.add(buttonAnnuler);
 		
 		// Mouse listener sur le tableau
