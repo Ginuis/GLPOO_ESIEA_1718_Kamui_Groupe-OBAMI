@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 import fr.esiea.kamui.dao.CsvTirageDao;
 
-public abstract class AbstractCsvTirageDaoTest {
+public abstract class AbstractCsvTirageDaoTest implements CsvTirageDao {
 
 	protected CsvTirageDao dao;
 
@@ -12,7 +12,6 @@ public abstract class AbstractCsvTirageDaoTest {
 
 	private final static String RESOURCES_PATH = "src/test/resources/";
 	private final static String TIRAGES_FILE_NAME = "euromillions_4.csv";
-	
 	
 	// J'écris mes tests
 

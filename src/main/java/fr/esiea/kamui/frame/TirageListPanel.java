@@ -25,22 +25,23 @@ import fr.esiea.kamui.modelTable.DynamicModel;
 
 public class TirageListPanel extends DesignPanel implements ActionListener {
 
-	final Logger LOGGER = Logger.getLogger(FinalCsvTirageDao.class);
+	final Logger LOGGER = Logger.getLogger(TirageListPanel.class);
 	private JTable table;
 	private DynamicModel model;
 	private final JButton buttonSelectionner;
 	private final JButton buttonAnnuler;
-	private FinalCsvTirageDao dao;
-	private String nomFichierAcces = "src/main/resources/euromillions_4.csv";
 	private JPanel tablePanel;
+	private static Tirage tirage;
 
 	public TirageListPanel() {
-
+		
 		super();
-		setLayout(null);
+  		setLayout(null);
 		Dimension dm = Toolkit.getDefaultToolkit().getScreenSize();
 
 		model = new DynamicModel();
+		
+		tirage = new Tirage(0, 0, 0,	0, 0, 0, 0);
 
 		table = new JTable(model);
 		table.setAutoCreateRowSorter(true);
@@ -72,7 +73,13 @@ public class TirageListPanel extends DesignPanel implements ActionListener {
 		table.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				if (e.getClickCount() == 1) {
-					selectLine();
+					//tirage = new Tirage(0, 0, 0,	0, 0, 0, 0);
+					tirage = selectLine();
+					//Tirage tirage = new Tirage(selectLine().getBoule1(), selectLine().getBoule2(), selectLine().getBoule3(), selectLine().getBoule4(),
+					//		selectLine().getBoule5(), selectLine().getEtoile1(), selectLine().getEtoile2());
+					
+					LOGGER.info("Tirage a faire passer"+tirage.toString());
+					MainFrame.showRosacePanel();
 				}
 			}
 		});
@@ -82,6 +89,14 @@ public class TirageListPanel extends DesignPanel implements ActionListener {
 		buttonAnnuler.setBounds(775, 500, 300, 100);
 
 		imprimerButton.addActionListener(this);
+
+		buttonSelectionner.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if (e.getClickCount() == 1) {
+					MainFrame.showRosacePanel();
+				}
+			}
+		});
 
 		// Action du menu graphique
 		homeLabel.addMouseListener(new MouseAdapter() {
@@ -102,44 +117,25 @@ public class TirageListPanel extends DesignPanel implements ActionListener {
 			}
 		});
 	}
+	
+	
 
 	// Selection d'une ligne du tableau
-	public void selectLine() {
+	public Tirage selectLine() {
 		LOGGER.info("Vous avez cliqué sur un element");
-		final int[] rows = table.getSelectedRows();
-		int boule1s[] = null;
-		//int boule2s[] = null;
-		//int boule3s[] = null;
-		//int boule4s[] = null;
-		//int boule5s[] = null;
-		/*
-		 * je l'utiliserais pour savoir quelles sont lignes qui ont été selectionné pour
-		 * le tirage for (int i = rows.length - 1; 0 < i; i--) {
-		 * 
-		 * }
-		 */
-		LOGGER.info(rows[0]);
-		
-		if (rows.length != 0) {
-			dao = new FinalCsvTirageDao();
-
-			for (int i = 0; i <= rows.length; i++) {
-				boule1s[i] = dao.findAllTirage(nomFichierAcces).get(rows[i]).getBoule1();
-				//boule2s[i] = dao.findAllTirage(nomFichierAcces).get(rows[i]).getBoule2();
-				//boule3s[i] = dao.findAllTirage(nomFichierAcces).get(rows[i]).getBoule3();
-				//boule4s[i] = dao.findAllTirage(nomFichierAcces).get(rows[i]).getBoule4();
-				//boule5s[i] = dao.findAllTirage(nomFichierAcces).get(rows[i]).getBoule5();
-
-			}
-			LOGGER.info(boule1s);
-			//LOGGER.info("Les boules selectionnées sont : [" + boule1s + " " + boule2s + " " + boule3s + " " + boule4s
-			//		+ " " + boule5s + "]");
-		}
+		final int row = table.getSelectedRow();
+		LOGGER.info(row);
+		LOGGER.info(model.getTirages().get(row));
+		return model.getTirages().get(row);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public static Tirage getTirage() {
+		return tirage;
 	}
 }

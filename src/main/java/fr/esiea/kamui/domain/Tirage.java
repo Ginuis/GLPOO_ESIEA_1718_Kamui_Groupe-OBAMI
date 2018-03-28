@@ -17,6 +17,7 @@ public class Tirage {
 	/*
 	 * Le constructeur de la classe qui initialise les attributs
 	 */
+	
 	public Tirage(int boule1, int boule2, int boule3, int boule4, int boule5, int etoile1, int etoile2) {
 		super();
 		this.boule1 = boule1;
@@ -36,7 +37,7 @@ public class Tirage {
 	}
 
 	public int getBoule2() {
-		return boule2;
+		return boule2;              
 	}
 
 	public int getBoule3() {

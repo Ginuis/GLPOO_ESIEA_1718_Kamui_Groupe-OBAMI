@@ -32,7 +32,7 @@ public class MainWindows extends JFrame{
 
 		public MainWindows() {
 			model = new DynamicModel();
-			setTitle("Puzzle");
+			setTitle("Puzzle"); 
 			setPreferredSize(new Dimension(1380, 1036));
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 

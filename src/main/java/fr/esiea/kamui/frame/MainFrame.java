@@ -9,6 +9,7 @@ import javax.swing.*;
 import org.apache.log4j.Logger;
 
 import fr.esiea.kamui.dao.FinalCsvTirageDao;
+import fr.esiea.kamui.domain.Tirage;
 
 public class MainFrame extends JFrame {
 
@@ -22,6 +23,7 @@ public class MainFrame extends JFrame {
 	protected HomePanel homePanel;
 	protected TirageListPanel tirageListPanel;
 	protected WelcomePanel welcomePanel;
+	protected RosacePanel rosacePanel;
 
 	public MainFrame() {
 		setTitle("GLPOO - KAMUI");
@@ -58,10 +60,12 @@ public class MainFrame extends JFrame {
 		homePanel = new HomePanel();
 		tirageListPanel = new TirageListPanel();
 		welcomePanel = new WelcomePanel();
+		rosacePanel = new RosacePanel();
 
 		contenue.add(welcomePanel, "welcomePanel");
 		contenue.add(homePanel, "homePanel");
 		contenue.add(tirageListPanel, "tirageListPanel");
+		contenue.add(rosacePanel, "rosacePanel");
 
 	}
 
@@ -83,6 +87,10 @@ public class MainFrame extends JFrame {
 	
 	public static void showWelcomePanel() {
 		Card.show(contenue, "welcomePanel");
+	}
+	
+	public static void showRosacePanel() {
+		Card.show(contenue, "rosacePanel");
 	}
 
 }
