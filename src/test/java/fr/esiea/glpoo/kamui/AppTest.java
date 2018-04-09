@@ -1,6 +1,6 @@
 package fr.esiea.glpoo.kamui;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.util.List;
@@ -11,11 +11,9 @@ import org.junit.Test;
 
 import fr.esiea.kamui.dao.CsvTirageDao;
 import fr.esiea.kamui.domain.Tirage;
-import junit.framework.Assert;
-import org.junit.Test;
 
-public abstract class AbstractCsvTirageDaoTest implements CsvTirageDao {
-
+public abstract class AppTest implements CsvTirageDao{
+	
 	protected static CsvTirageDao dao;
 
 	private static final Logger LOGGER = Logger.getLogger(AbstractCsvTirageDaoTest.class);
@@ -23,8 +21,7 @@ public abstract class AbstractCsvTirageDaoTest implements CsvTirageDao {
 	private final static String RESOURCES_PATH = "src/test/resources/";
 	private final static String TIRAGES_FILE_NAME = "euromillions_4.csv";
 
-	private int nombreBouleAttendue;
-	
+	/*
 	@Before
     public void doBefore() {
         LOGGER.debug("doBefore Debut");
@@ -33,7 +30,7 @@ public abstract class AbstractCsvTirageDaoTest implements CsvTirageDao {
         dao.init(file);
 
         LOGGER.debug("doBefore Fin");
-    }
+    }*/
 	
 	// J'écris mes tests
 	
