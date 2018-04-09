@@ -173,4 +173,10 @@ public class FinalCsvTirageDao implements CsvTirageDao {
 		return tirages;
 	}
 
+	@Override
+	public List<Tirage> findAllTirage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -14,4 +14,7 @@ public interface CsvTirageDao {
 	public List<String> getEntetes(); 
 	
 	public List<Tirage> getTirages();
+
+	public List<Tirage> findAllTirage();
+
 }

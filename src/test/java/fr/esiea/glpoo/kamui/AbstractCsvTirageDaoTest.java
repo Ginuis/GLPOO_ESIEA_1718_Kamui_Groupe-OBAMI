@@ -2,88 +2,136 @@ package fr.esiea.glpoo.kamui;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.File;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.junit.Before;
+import org.junit.Assert;
 import org.junit.Test;
 
 import fr.esiea.kamui.dao.CsvTirageDao;
 import fr.esiea.kamui.domain.Tirage;
-import junit.framework.Assert;
-import org.junit.Test;
 
-public abstract class AbstractCsvTirageDaoTest implements CsvTirageDao {
-
-	protected static CsvTirageDao dao;
-
+public abstract class AbstractCsvTirageDaoTest {
+	
 	private static final Logger LOGGER = Logger.getLogger(AbstractCsvTirageDaoTest.class);
-
-	private final static String RESOURCES_PATH = "src/test/resources/";
-	private final static String TIRAGES_FILE_NAME = "euromillions_4.csv";
-
-	private int nombreBouleAttendue;
+	protected CsvTirageDao dao;
 	
-	@Before
-    public void doBefore() {
-        LOGGER.debug("doBefore Debut");
-
-        final File file = new File(RESOURCES_PATH + TIRAGES_FILE_NAME);
-        dao.init(file);
-
-        LOGGER.debug("doBefore Fin");
-    }
-	
-	// J'écris mes tests
-	
-	/**
-     * Teste la valeur de la premiere boule du premier tirage
-     * 
-     * RESULT Premiere boule : 41
-     */
-    @Test
-    public void doTestPremiereBoule() {
-    	// Act
-        final List<Tirage> tirages = dao.getTirages();
-        final int nombreBouleAttendue = 41;
-
-        // Assert
-        assertEquals(nombreBouleAttendue, ((Tirage) tirages).getBoule1());
-    }
-
-    /**
-     * Teste la valeur de la premiere etoile du premier tirage.
-     * 
-     * 
-     * RESULT Premiere etoile : 2
-     */
-    @Test
-    public void doTestPremiereEtoile() {
-    	// Act
-        final List<Tirage> tirages = dao.getTirages();
-        final int nombreEtoileAttendue = 2;
-        // Assert
-        assertEquals(nombreEtoileAttendue, ((Tirage) tirages).getEtoile1());
-    }
-
-    @Test
-    public void doTestTailleEntetes() {
+	@Test
+    public void testTailleEntetes() {
+		LOGGER.debug("testTailleEntetes Debut");
         // Act
         final List<String> entetes = dao.getEntetes();
         final int tailleAttendue = 75;
         // Assert
         assertEquals(tailleAttendue, entetes.size());
+        LOGGER.debug("testTailleEntetes Fin");
     }
 
     @Test
-    public void doTestPremierEntetes() {
+    public void testPremierEntetes() {
+    	LOGGER.debug("testPremierEntetes Debut");
     	// Act
         final List<String> entetes = dao.getEntetes();
         final String enteteAttendue = "annee_numero_de_tirage";
         final int position = 0;
         // Assert
         assertEquals(enteteAttendue, entetes.get(position));
+        LOGGER.debug("testPremierEntetes Fin");
     }
+    
+    @Test
+    public void testDeuxiemeEntetes() {
+    	LOGGER.debug("testDeuxiemeEntetes Debut");
+    	// Act
+    	final List<String> entetes = dao.getEntetes();
+    	final String enteteAttendue = "jour_de_tirage";
+    	final int position = 1;
+    	// Assert
+    	assertEquals(enteteAttendue, entetes.get(position));
+    	LOGGER.debug("testDeuxiemeEntetes Fin");
+    }
+    
+	@Test
+	public void testBoule1() throws Exception {
+		LOGGER.debug("testBoule1 Debut");
+		//Arrange
+		final int bouleAttendue = 41;
+		// Act
+		final List<Tirage> tirages = dao.findAllTirage();
+		// Assert
+		Assert.assertEquals(bouleAttendue, tirages.get(0).getBoule1());
+		LOGGER.debug("testBoule1 Fin");
+	}
 
+	@Test
+	public void testBoule2() throws Exception {
+		LOGGER.debug("testBoule2 Debut");
+		//Arrange
+		final int bouleAttendue = 6;
+		// Act
+		final List<Tirage> tirages = dao.findAllTirage();
+		// Assert
+		Assert.assertEquals(bouleAttendue, tirages.get(0).getBoule2());
+		LOGGER.debug("testBoule2 Fin");
+	}
+
+	@Test
+	public void testBoule3() throws Exception {
+		LOGGER.debug("testBoule3 Debut");
+		//Arrange
+		final int bouleAttendue = 13;
+		// Act
+		final List<Tirage> tirages = dao.findAllTirage();
+		// Assert
+		Assert.assertEquals(bouleAttendue, tirages.get(0).getBoule3());
+		LOGGER.debug("testBoule3 Fin");
+	}
+
+	@Test
+	public void testBoule4() throws Exception {
+		LOGGER.debug("testBoule4 Debut");
+		//Arrange
+		final int bouleAttendue = 39;
+		// Act
+		final List<Tirage> tirages = dao.findAllTirage();
+		// Assert
+		Assert.assertEquals(bouleAttendue, tirages.get(0).getBoule4());
+		LOGGER.debug("testBoule4 Fin");
+	}
+
+	@Test
+	public void testBoule5() {
+		LOGGER.debug("testBoule5 Debut");
+		//Arrange
+		final int bouleAttendue = 9;
+		// Act
+		final List<Tirage> tirages = dao.findAllTirage();
+		// Assert
+		Assert.assertEquals(bouleAttendue, tirages.get(0).getBoule5());
+		LOGGER.debug("testBoule5 fin");
+	}
+
+	@Test
+	public void testEtoile1() throws Exception {
+		LOGGER.debug("testEtoile1 Debut");
+		//Arrange
+		final int etoileAttendue = 2;
+		// Act
+		final List<Tirage> tirages = dao.findAllTirage();
+		// Assert
+		Assert.assertEquals(etoileAttendue, tirages.get(0).getEtoile1());
+		LOGGER.debug("testEtoile1 fin");
+	}
+
+	@Test
+	public void testEtoile2() throws Exception {
+		LOGGER.debug("testEtoile2 Debut");
+		//Arrange
+		final int etoileAttendue = 12;
+		// Act
+		final List<Tirage> tirages = dao.findAllTirage();
+		// Assert
+		Assert.assertEquals(etoileAttendue, tirages.get(0).getEtoile2());
+		LOGGER.debug("testEtoile2 Fin");
+}
 }
