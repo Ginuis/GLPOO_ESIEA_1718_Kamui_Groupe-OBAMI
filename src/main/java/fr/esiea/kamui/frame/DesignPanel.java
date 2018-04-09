@@ -15,7 +15,7 @@ public class DesignPanel extends JPanel {
 	 */
 	private JPanel panelHaut, panelBas, panelBanderoleHaut, panelBanderoleBas;
 	private JLabel label_1, entete_label_3;
-	protected JLabel tirageListLabel, bonusLabel, homeLabel;
+	protected JLabel tirageListLabel, homeLabel;
 	private Font policeCentury, policeCastellar, policeTower;
 	private Color Couleur1, Couleur2, Couleur3, Couleur4, Couleur5;
 	protected JButton imprimerButton;
@@ -55,8 +55,6 @@ public class DesignPanel extends JPanel {
 
 		tirageListLabel = new JLabel("Liste des Tirages");
 		tirageListLabel.setFont(policeTower);
-		bonusLabel = new JLabel("Bonus");
-		bonusLabel.setFont(policeTower);
 		homeLabel = new JLabel("Accueil");
 		homeLabel.setFont(policeTower);
 
@@ -85,16 +83,13 @@ public class DesignPanel extends JPanel {
 		banniere.setBounds(30, 10, 300, 70);
 
 		add(tirageListLabel);
-		add(bonusLabel);
 		add(homeLabel);
 
 		panelHaut.add(tirageListLabel);
-		panelHaut.add(bonusLabel);
 		panelHaut.add(homeLabel);
 
 		homeLabel.setBounds(500,10, 240, 70);
 		tirageListLabel.setBounds(700, 10, 240, 70);
-		bonusLabel.setBounds(1000, 10, 150, 70);
 		
 
 	}

@@ -27,11 +27,6 @@ public class HomePanel extends DesignPanel implements ActionListener {
 			}
 		});
 
-		bonusLabel.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				// Todo
-			}
-		});
 	}
 
 	@Override

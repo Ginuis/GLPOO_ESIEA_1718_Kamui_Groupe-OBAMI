@@ -22,7 +22,6 @@ public class MainFrame extends JFrame {
 	protected static CardLayout Card;
 	protected HomePanel homePanel;
 	protected TirageListPanel tirageListPanel;
-	protected WelcomePanel welcomePanel;
 	protected RosacePanel rosacePanel;
 
 	public MainFrame() {
@@ -59,10 +58,8 @@ public class MainFrame extends JFrame {
 
 		homePanel = new HomePanel();
 		tirageListPanel = new TirageListPanel();
-		welcomePanel = new WelcomePanel();
 		rosacePanel = new RosacePanel();
 
-		contenue.add(welcomePanel, "welcomePanel");
 		contenue.add(homePanel, "homePanel");
 		contenue.add(tirageListPanel, "tirageListPanel");
 		contenue.add(rosacePanel, "rosacePanel");

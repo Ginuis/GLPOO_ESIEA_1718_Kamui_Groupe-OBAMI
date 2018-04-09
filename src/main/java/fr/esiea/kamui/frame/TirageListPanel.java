@@ -28,8 +28,6 @@ public class TirageListPanel extends DesignPanel implements ActionListener {
 	final Logger LOGGER = Logger.getLogger(TirageListPanel.class);
 	private JTable table;
 	private DynamicModel model;
-	private final JButton buttonSelectionner;
-	private final JButton buttonAnnuler;
 	private JPanel tablePanel;
 	private static Tirage tirage;
 
@@ -60,14 +58,6 @@ public class TirageListPanel extends DesignPanel implements ActionListener {
 		jsp.setBounds(0, 50, dm.width - 20, 450);
 		table.setBounds(0, 0, dm.width - 20, 50);
 
-		ImageIcon imgSelectionner = new ImageIcon("src/main/resources/buttonSelectionner.png");
-		ImageIcon imgAnnuler = new ImageIcon("src/main/resources/buttonAnnuler.png");
-		buttonSelectionner = new JButton();
-		buttonAnnuler = new JButton();
-		buttonSelectionner.setIcon(imgSelectionner);
-		buttonAnnuler.setIcon(imgAnnuler);
-		tablePanel.add(buttonSelectionner);
-		tablePanel.add(buttonAnnuler);
 
 		// Mouse listener sur le tableau
 		table.addMouseListener(new MouseAdapter() {
@@ -79,20 +69,6 @@ public class TirageListPanel extends DesignPanel implements ActionListener {
 					//		selectLine().getBoule5(), selectLine().getEtoile1(), selectLine().getEtoile2());
 					
 					LOGGER.info("Tirage a faire passer"+tirage.toString());
-					MainFrame.showRosacePanel();
-				}
-			}
-		});
-
-		// Position des button
-		buttonSelectionner.setBounds(400, 500, 300, 100);
-		buttonAnnuler.setBounds(775, 500, 300, 100);
-
-		imprimerButton.addActionListener(this);
-
-		buttonSelectionner.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				if (e.getClickCount() == 1) {
 					MainFrame.showRosacePanel();
 				}
 			}
@@ -111,15 +87,9 @@ public class TirageListPanel extends DesignPanel implements ActionListener {
 			}
 		});
 
-		bonusLabel.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				// Todo
-			}
-		});
 	}
 	
 	
-
 	// Selection d'une ligne du tableau
 	public Tirage selectLine() {
 		LOGGER.info("Vous avez cliqué sur un element");
