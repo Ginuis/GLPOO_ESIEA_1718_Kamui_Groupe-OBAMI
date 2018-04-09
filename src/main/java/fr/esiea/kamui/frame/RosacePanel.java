@@ -94,11 +94,11 @@ public class RosacePanel extends DesignPanel implements ActionListener {
 		add(fractalePanel);
 		displayPanel.add(fractalePanel);
 		fractalePanel.setLayout(null);
-		fractalePanel.setBounds(650, 20, 700, 550);
+		fractalePanel.setBounds(650, 20, 550, 550);
 	}
 	
 	public int modeleGeneration(Tirage tirage) {
-		int modele = (tirage.getBoule1()*tirage.getBoule2()*tirage.getBoule3()*tirage.getBoule4()*tirage.getBoule5())/(tirage.getEtoile1()*tirage.getEtoile2());
+		int modele = (tirage.getBoule1()*tirage.getBoule2()+tirage.getBoule3()*tirage.getBoule4()*tirage.getBoule5())/(tirage.getEtoile1()*tirage.getEtoile2());
 		LOGGER.info("Modele: "+modele);
 		return modele;
 	}
